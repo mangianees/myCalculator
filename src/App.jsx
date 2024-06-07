@@ -14,7 +14,6 @@ function App() {
   }
 
   const handleClear =(value)=>{
-    console.log(value.target.value);
     setInput('');
     setResult('');
 
@@ -23,19 +22,18 @@ function App() {
   const handleResult =(value)=>{
     
     const evalResult = eval(input);
+    setInput('')
     setResult(evalResult)
   
   }
 
 
   return (
-    <>
-    <div><h2>{input}</h2></div>
-
-    <div><h2>{result}</h2></div>
     
-    <Panel handleClick={handleClick} handleClear = {handleClear} handleResult={handleResult}/>
-    </>
+    <div className='display'>{input || result || '0'}
+      <Panel handleClick={handleClick} handleClear = {handleClear} handleResult={handleResult}/>
+    </div>
+    
   )
 }
 

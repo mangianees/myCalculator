@@ -2,3 +2,41 @@
 body{
   background-color: gray;
 }
+
+.NumberButtons {
+  display: grid;
+  grid-template-columns: repeat(4,2fr);
+  gap: 10px;
+  width: 220px;
+}
+
+NumberButtons:hover {
+  background: #555;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+.calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: -50px;
+}
+
+.display {
+  width: 250px;
+  height: 40px;
+  background: #ffffff;
+  color: #000000;
+  text-align: right;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  margin-left: 30px;
+}
+.container{
+  top: 0;
+  left: 0;
+}
