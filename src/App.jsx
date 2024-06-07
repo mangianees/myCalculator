@@ -1,37 +1,40 @@
 import { useState } from 'react'
-import Numbers from './assets/Components/Numbers'
-import Screen from './assets/Components/screen'
+import Panel from './assets/Components/Panel'
 import './App.css'
-import Clear from './assets/Components/Clear'
 
 function App() {
   const [input, setInput] = useState('')
   const [result, setResult] = useState('')
 
   const handleClick =(value)=>{
-    console.log(value.target.value);
-    setInput(input + value)
+    return setInput(()=>{
+      return  input + value.target.value.toString();
+    })
+
   }
 
   const handleClear =(value)=>{
     console.log(value.target.value);
     setInput('');
-    setResult('')
-    
+    setResult('');
+
   }
 
   const handleResult =(value)=>{
     
+    const evalResult = eval(input);
+    setResult(evalResult)
+  
   }
+
 
   return (
     <>
+    <div><h2>{input}</h2></div>
 
-    <Screen />
-    <Numbers handleClick={handleClick} handleClear = {handleClear}/>
-    {/* <Clear clear={handleClear} /> */}
-
-
+    <div><h2>{result}</h2></div>
+    
+    <Panel handleClick={handleClick} handleClear = {handleClear} handleResult={handleResult}/>
     </>
   )
 }
